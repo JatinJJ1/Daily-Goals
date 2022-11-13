@@ -12,4 +12,20 @@ body {
     background-color: white;
     width: 70%;
     min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea,
+button {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font:100 1.2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
