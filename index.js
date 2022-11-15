@@ -3,7 +3,10 @@ const description= document.getElementById("description");
 const form= document.querySelector("form");
 const container= document.querySelector(".container");
 
-const tasks = [];
+const tasks = localStorage.getItem("tasks")?
+ JSON.parse(localStorage.getItem("tasks")) : [];
+
+ showAllTasks();
 
 
 function showAllTasks () {
@@ -27,6 +30,7 @@ function showAllTasks () {
         btn.addEventListener("click", ()=> {
             removeTasks();
             tasks.splice(index,1);
+            localStorage.setItem("tasks",JSON.stringify(tasks));
             showAllTasks();
         })
         div.append(btn);
@@ -49,5 +53,7 @@ form.addEventListener("submit", (e) => {
         title:title.value,
         description: description.value,
     });
+
+    localStorage.setItem("tasks",JSON.stringify(tasks));
     showAllTasks();
 });
