@@ -5,6 +5,7 @@ const container= document.querySelector(".container");
 
 const tasks = [];
 
+
 function showAllTasks () {
     tasks.forEach ((value,index)=> {
         const div = document.createElement("div");
@@ -28,12 +29,20 @@ function showAllTasks () {
     });
 }
 
+function removeTasks ()
+{
+    tasks.forEach((value)=>{
+        const div = document.querySelector(".task");
+        div.remove();
+    });
+}
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    removeTasks();
     tasks.push({
         title:title.value,
         description: description.value,
     });
-    console.log(tasks);
     showAllTasks();
 });
